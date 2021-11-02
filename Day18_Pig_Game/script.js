@@ -69,11 +69,12 @@ holdBtnEl.addEventListener('click', function () {
     totalScores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
       totalScores[activePlayer];
-    if (totalScores[0] > 20 || totalScores[1] > 20) {
+    if (totalScores[0] > 100 || totalScores[1] > 100) {
       playing = false;
       //   document
       //     .querySelector(`player--${activePlayer}`)
       //     .classList.remove('player--active');
+      diceEl.classList.add('hidden');
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
