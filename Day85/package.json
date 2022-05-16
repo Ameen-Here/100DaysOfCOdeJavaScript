@@ -1,0 +1,18 @@
+{
+  "name": "day84",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "Ameen",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.22.5",
+    "parcel": "^2.5.0",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.5.0"
+  }
+}
