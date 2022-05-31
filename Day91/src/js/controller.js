@@ -5,6 +5,8 @@ import searchViews from "./views/searchViews";
 import resultViews from "./views/resultViews";
 import paginationViews from "./views/paginationViews.js";
 
+import bookmarkView from "./views/bookmarksView.js";
+
 // Pollyfilling after babel [Done bey parcel]
 import "core-js/stable";
 import "regenerator-runtime/runtime";
@@ -76,11 +78,24 @@ const controlServings = function (newServings) {
   recipeViews.update(model.state.recipe);
 };
 
+const controlBookmark = function () {
+  // Looking whether its bookmarked or not
+  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
+  else model.deleteBookmark(model.state.recipe.id);
+
+  recipeViews.update(model.state.recipe);
+
+  console.log(model.state.bookmarks);
+
+  bookmarkView.render(model.state.bookmarks);
+};
+
 const init = function () {
   recipeViews.addHandlerRender(controllerRecipe);
+  recipeViews.addHandlerUpdateServ(controlServings);
+  recipeViews.addBookmarkHandler(controlBookmark);
   searchViews.addHandlerSearch(controlSearchResult);
   paginationViews.addHandlePagination(controlPagination);
-  recipeViews.addHandlerUpdateServ(controlServings);
 };
 
 init();
